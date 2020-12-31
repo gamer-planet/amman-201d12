@@ -61,11 +61,15 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
-    var total = a + b + c;
-    var total2 = a * b * c;
+    var total = sum(a,b);
+    var total3 = sum(total[0],c);
+
+    var total2 = multiply(a,b);
+    var total4 = multiply(total2[0],c) ;
+
     var returnArray = [
-        total,
-        total2,
+        total3[0],
+        total4[0],
         "4 and 7 and 5 sum to 16.",
         "The product of 4 and 7 and 5 is 140."
     ]
@@ -92,7 +96,11 @@ Test this function by hand in the console to get it working, and when you think 
 var testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) { //eslint-disable-line
-    var total = (2 + 3 + 4);
+    var total=0;
+    for (let index = 0; index < sumArr.length; index++) {
+        
+         total= sum(total,sumArr[index])[0];
+    }
     var returnArray = [
         total,
         "2,3,4 was passed in as an array of numbers, and 9 is their sum."
@@ -119,7 +127,11 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiplyArray(multArr) { //eslint-disable-line
-    var total = (2 * 3 * 4);
+    var total=1;
+    for (let index = 0; index < multArr.length; index++) {
+
+         total= multiply(total,multArr[index])[0];
+    }
     var returnArray = [
         total,
         "The numbers 2,3,4 have a product of 24."
@@ -153,7 +165,11 @@ Test this function by hand in the console to get it working, and when you think 
 var testDynamicArray = [1,2,3,4,5]; //eslint-disable-line
 
 function multiplyAnyArray(dynamicArray) { //eslint-disable-line
-    var total = (1 * 2 * 3 * 4 * 5);
+    var total=1;
+    for (let index = 0; index < dynamicArray.length; index++) {
+        
+         total= multiply(total,dynamicArray[index])[0];
+    }
     var returnArray = [
         total,
         "The numbers 1,2,3,4,5 have a product of 120."
